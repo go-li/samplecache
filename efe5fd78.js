@@ -1,0 +1,2 @@
+jscallback({"body":"package main\n\nimport \"fmt\"\n\nfunc Deduplicate(compare func(*,*)int, arry []) (l int) {\n l = len(arry)\n for i:=0;i\u003cl;i++{\n  for j:=i+1;j\u003cl;j++{\n\n   if(compare(\u0026arry[j], \u0026arry[i])==0){\n        arry[j] = arry[l-1]\n        l--\n     }\n  }\n }\n  return l\n}\n\nfunc comparebyte(l *byte, r *byte) int {\n      return int(*l) - int(*r)\n}\n\nfunc main() {\n\tvar s = []byte(\"Hello, playground\")\n        s = s[:Deduplicate(comparebyte, s)]\n\nfmt.Printf(\"%s\", string(s))\n}\n"}
+);
