@@ -1,0 +1,2 @@
+jscallback({"body":"package main\n\nimport (\n\t\"fmt\"\n)\n\nfunc set7_visitor(num *int) {\n           fmt.Printf(\"I am: \")\n           *num = 7\n}\nfunc print_visitor(num *int) {\n        fmt.Printf(\"%d\", *num)\n}\n   \nfunc visit(visitor func(*), obj *) {\n        visitor(obj)\n}\n\nfunc main() {\n\tvar a,b,c = 1,2,3\n\tvisit(set7_visitor, \u0026b)\n\tvisit(print_visitor, \u0026a)\n\tvisit(print_visitor, \u0026c)\n\tvisit(print_visitor, \u0026c)\n\tvisit(print_visitor, \u0026b)\n\t\n}"}
+);
