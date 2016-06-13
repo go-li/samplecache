@@ -1,0 +1,2 @@
+jscallback({"body":"package main\n\nfunc hello(x *string) {\n\tvar f string = \"Hello:\" + *x\n       *x = f\n}\n\nfunc twice(x *string) {\n\tvar f string = *x + *x\n       *x = f\n}\n\nfunc mymap(call func(*), slice []*) {\n\tfor i := range slice {\n\t\tcall(slice[i])\n\t}\n}\n\nfunc main() {\n\n\tvar one = \"1\"\n\tvar two = \"2\"\n\tvar thr = \"3\"\n\n\tvar slice = []*string{\u0026one, \u0026two, \u0026thr}\n\n\tmymap(twice, slice)\n\tmymap(hello, slice)\n\n\tfor i := range slice {\n\t\tprint(*slice[i])\n\t\tprint(\"\\n\")\n\t}\n\n\n}\n"}
+);
