@@ -1,0 +1,2 @@
+jscallback({"body":"package main\n\nfunc foreach_slice(slice []*, call func(*)) {\n\tfor i := range slice {\n\t\tcall(slice[i])\n\t}\n}\n\nfunc main() {\n\t a := \"a\" ;\t aa := \"aa\";\t aaa := \"aaa\"\n\tvar as = []*string{\u0026a, \u0026aa, \u0026aaa}\n\t\n\tvar bs []*int\n\t\n\t// slice conversion one-liner\n\tforeach_slice(as, func(arg *string){var i int; i = len(*arg); bs = append(bs,\u0026i)})\n\n\n\t// print the result\n\tforeach_slice(bs, func(arg *int){\n\t\tprint(*arg);\n\t\tprint(\"\\n\")\n\t})\n\t\n}"}
+);
